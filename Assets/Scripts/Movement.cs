@@ -61,6 +61,10 @@ public class Movement : MonoBehaviour
             {
                 rb.velocity = new Vector2(rb.velocity.x, maxJetV);
             }
+            animator.SetTrigger("IsJetpacking");
+        } else
+        {
+            animator.ResetTrigger("IsJetpacking");
         }
         //2 seconds
         if (timeIdle >= 2f)
