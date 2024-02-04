@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private movementType flightType = movementType.RandomMove;
     [SerializeField] private float speed = 75f;
     [SerializeField] private float killTime = 20;
+    [SerializeField] private float scale = 0.5f;
 
 
     private Vector2 Offset;
@@ -57,9 +58,8 @@ public class Enemy : MonoBehaviour
         
         if(offsetTime + killTime <= time)
         {
-            Debug.Log("enemy shoot");
             BaseController.GetComponent<AleinAttackBase>().get_hit();
-            time = offsetTime;
+            Destroy(gameObject);   
         }
 
         if (needToStart)
@@ -78,6 +78,7 @@ public class Enemy : MonoBehaviour
             }
             needToStart = false;
         }
+        transform.localScale += new Vector3(scale, scale, scale) * Time.deltaTime;
 
         switch (flightType)
         {

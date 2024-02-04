@@ -4,8 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/AlienAttackBaseScene.unity
-    guid: b886b912ab89dd348b5aecb5f9b96853
+  m_Scenes: []
   m_configObjects: {}
