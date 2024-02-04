@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AlienAttackBaseScene.unity
     guid: b886b912ab89dd348b5aecb5f9b96853
+  - enabled: 1
+    path: Assets/Scenes/AlienAttackLevel1.unity
+    guid: 7ec9efc6b219de5418adb20a56fe141f
+  - enabled: 1
+    path: Assets/Scenes/AlienAttackLevel2.unity
+    guid: 22e70ebca74e1e74f969caba27e0a469
   m_configObjects: {}
