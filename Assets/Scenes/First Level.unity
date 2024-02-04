@@ -26062,7 +26062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7420a89d7e7426f4e8d7d9cc63616336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 20
+  moveSpeed: 10
   jump: 8
   jetpackMax: 0.5
   jetpackTime: 0
@@ -26623,7 +26623,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1435976274}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -26677,8 +26677,8 @@ Transform:
   m_GameObject: {fileID: 1435976274}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -9, y: 6.19, z: 0}
-  m_LocalScale: {x: -10.6063, y: 1, z: 1}
+  m_LocalPosition: {x: -18.55, y: 2.61, z: 0}
+  m_LocalScale: {x: -16.545828, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
