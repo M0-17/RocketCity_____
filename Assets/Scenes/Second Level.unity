@@ -11118,6 +11118,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2086629547}
     - target: {fileID: 7074044983308541288, guid: d56381c8211d33e408f593a16a0711ae, type: 3}
+      propertyPath: dHuntSceneName
+      value: AlienAttackLevel2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7074044983308541288, guid: d56381c8211d33e408f593a16a0711ae, type: 3}
       propertyPath: optionalCanvas
       value: 
       objectReference: {fileID: 1011909243}
