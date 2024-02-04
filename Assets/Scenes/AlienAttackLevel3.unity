@@ -2750,6 +2750,7 @@ MonoBehaviour:
   overlay: {fileID: 1887272686}
   overlay2: {fileID: 321946378}
   overlay3: {fileID: 427200903}
+  level: 3
 --- !u!1 &1677666101
 GameObject:
   m_ObjectHideFlags: 0
