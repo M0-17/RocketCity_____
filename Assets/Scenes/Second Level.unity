@@ -10972,7 +10972,7 @@ MonoBehaviour:
   anim2: {fileID: 866307108}
   anim2Trigger: intoShip
   endTime: 4
-  nextScene: MainMenu
+  nextScene: Third Level
   fixCam: {x: 0.38, y: 3.79}
 --- !u!212 &646314482
 SpriteRenderer:
