@@ -10,6 +10,7 @@ public class Globals : MonoBehaviour
     public static bool DHunt = false;
     public static bool winDHunt = false;
     public static bool canJetpack = false;
+    public static bool hasFuel = false;
 
     // Start is called before the first frame update
     void Start()

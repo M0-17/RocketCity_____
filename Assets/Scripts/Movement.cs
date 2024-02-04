@@ -35,7 +35,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
 
-        if (rb.velocity.y < 0)
+        if (rb.velocity.y < -1)
         {
             animator.SetTrigger("IsFalling");
         } else
@@ -61,6 +61,10 @@ public class Movement : MonoBehaviour
             {
                 rb.velocity = new Vector2(rb.velocity.x, maxJetV);
             }
+            animator.SetTrigger("IsJetpacking");
+        } else
+        {
+            animator.ResetTrigger("IsJetpacking");
         }
         //2 seconds
         if (timeIdle >= 2f)
