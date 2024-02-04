@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-// using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+
 
 public class AleinAttackBase : MonoBehaviour
 {
@@ -13,10 +14,12 @@ public class AleinAttackBase : MonoBehaviour
     [SerializeField] private TMP_Text ammo = null;
     [SerializeField] private GameObject recharge = null;
     [SerializeField] private GameObject Enemies = null;
+    [SerializeField] private Animator cannon = null;
     [SerializeField] private int shots = 9;
     [SerializeField] private float shot_time = 3;
     [SerializeField] private GameObject overlay = null;
     [SerializeField] private GameObject overlay2 = null;
+    [SerializeField] private GameObject overlay3 = null;
     private int shields = 0;
     private float cooldown = 0;
 
@@ -53,6 +56,7 @@ public class AleinAttackBase : MonoBehaviour
         {         
             if(shots > 0 && cooldown <= 0)
             {
+                cannon.SetTrigger("isFiring");
                 RaycastHit2D hit=Physics2D.Raycast(pos, Vector2.zero, 0f);
                 
                 if (hit)
@@ -61,14 +65,19 @@ public class AleinAttackBase : MonoBehaviour
                 }
                 shots--;
                 cooldown = shot_time;
-                // overlay.SetActive(true);
                 flash1();
                 Invoke(nameof(flash2), 0.05f);
                 Invoke(nameof(flash3), 0.05f);
+                Invoke(nameof(reset), 0.15f);
             }
         }
 
         ammo.text = "Ammo: " + shots.ToString("00");
+    }
+    
+    void reset()
+    {
+        cannon.ResetTrigger("isFiring");
     }
 
     void flash1()
@@ -95,7 +104,22 @@ public class AleinAttackBase : MonoBehaviour
 
     void flash5()
     {
-        Debug.Log("Return to Platformer");
+        overlay2.SetActive(false);
+        overlay3.SetActive(true);
+        Debug.Log("flash5");
+        // Debug.Log("Return to Platformer");
+    }
+
+    void flash6()
+    {
+        overlay3.SetActive(false);
+        Debug.Log("flash6");
+    }
+
+    void flash7()
+    {
+        Debug.Log("flash7");
+        SceneManager.LoadScene("AlienAttackBaseScene");
     }
 
     public void get_hit()
@@ -112,11 +136,13 @@ public class AleinAttackBase : MonoBehaviour
 
 
         Debug.Log("Game over"); 
-        this.enabled = false;
+        
         flash1();
-        Invoke(nameof(flash4), 0.02f);
+        Invoke(nameof(flash4), 0.2f);
         Invoke(nameof(flash5), 2.0f);
-
+        Invoke(nameof(flash6), 2.0f);
+        Invoke(nameof(flash7), 2.0f);
+        this.enabled = false;
     }
 
     // public void UpdateLevelTimer(float totalSeconds)
