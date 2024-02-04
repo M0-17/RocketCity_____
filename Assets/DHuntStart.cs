@@ -33,6 +33,7 @@ public class DHuntStart : MonoBehaviour
                 {
                     optionalCanvas.active = true;
                     Globals.canJetpack = true;
+                    GameObject.FindWithTag("Ship").GetComponent<Animator>().SetTrigger("IdleActive");
                 }
 
                 //Remove the box collider so it doesn't trigger again

@@ -35,7 +35,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
 
-        if (rb.velocity.y < 0)
+        if (rb.velocity.y < -1)
         {
             animator.SetTrigger("IsFalling");
         } else

@@ -7,6 +7,6 @@ public class MenuButton : MonoBehaviour
 {
     public void StartGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("AlienAttackBaseScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("First Level");
     }
 }
