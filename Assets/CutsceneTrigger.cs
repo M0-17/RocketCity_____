@@ -38,7 +38,7 @@ public class CutsceneTrigger : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if ((nextScene != "MainMenu") || (Globals.hasFuel && Globals.canJetpack))
+            if ((nextScene != "Third Level") || (Globals.hasFuel && Globals.canJetpack))
             {
                 Globals.winDHunt = false;
                 Destroy(GameObject.FindWithTag("Player"));
