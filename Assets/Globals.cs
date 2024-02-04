@@ -9,6 +9,7 @@ public class Globals : MonoBehaviour
     public static Vector2 coords;
     public static bool DHunt = false;
     public static bool winDHunt = false;
+    public static bool canJetpack = false;
 
     // Start is called before the first frame update
     void Start()

@@ -9,6 +9,7 @@ public class DHuntStart : MonoBehaviour
     public string currentSceneName;
     public string dHuntSceneName;
     public GameObject destroyObj;
+    public GameObject optionalCanvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,17 +24,28 @@ public class DHuntStart : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (Globals.winDHunt)
+        if (collision.gameObject.tag == "Player")
         {
-            //Remove the box collider so it doesn't trigger again
-            Destroy(destroyObj);
-            Destroy(gameObject);
-        } else
-        {
-            Globals.coords = new Vector2(transform.position.x, transform.position.y + 1);
-            Globals.DHunt = true;
-            Globals.scene = currentSceneName;
-            SceneManager.LoadScene(dHuntSceneName);
+            if (Globals.winDHunt)
+            {
+
+                if (currentSceneName == "Second Level")
+                {
+                    optionalCanvas.active = true;
+                    Globals.canJetpack = true;
+                }
+
+                //Remove the box collider so it doesn't trigger again
+                Destroy(destroyObj);
+                Destroy(gameObject);
+            }
+            else
+            {
+                Globals.coords = new Vector2(transform.position.x, transform.position.y + 1);
+                Globals.DHunt = true;
+                Globals.scene = currentSceneName;
+                SceneManager.LoadScene(dHuntSceneName);
+            }
         }
     }
 }

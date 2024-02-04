@@ -14,6 +14,11 @@ public class Movement : MonoBehaviour
     private Animator animator;
     private float timeIdle;
     // Start is called before the first frame update
+    public float jetpackMax = 0.5f;
+    public float jetpackTime;
+    private bool isJetpacking;
+    public float jetpackDiv = 1;
+    private float maxJetV;
     void Start()
     {
         animator = gameObject.GetComponentInChildren<Animator>();
@@ -21,6 +26,9 @@ public class Movement : MonoBehaviour
         isJumping = true;
         rb = gameObject.GetComponent<Rigidbody2D>();
         timeIdle = 0;
+        jetpackTime = jetpackMax;
+        isJetpacking = false;
+        maxJetV = 10;
     }
 
     // Update is called once per frame
@@ -41,8 +49,19 @@ public class Movement : MonoBehaviour
         {
             rb.AddForce(new Vector2(0, jump * rb.mass), ForceMode2D.Impulse);
             isJumping = true;
+        } else if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isJumping && Globals.canJetpack && jetpackTime > 0) {
+            isJetpacking = true;
         }
 
+        if (isJetpacking && jetpackTime > 0 && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)))
+        {
+            jetpackTime -= Time.deltaTime;
+            rb.AddForce(new Vector2(0, jump * rb.mass / jetpackDiv), ForceMode2D.Force);
+            if (rb.velocity.y > maxJetV)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, maxJetV);
+            }
+        }
         //2 seconds
         if (timeIdle >= 2f)
         {
@@ -94,5 +113,6 @@ public class Movement : MonoBehaviour
     public void setJump()
     {
         isJumping = false;
+        jetpackTime = jetpackMax;
     }
 }
