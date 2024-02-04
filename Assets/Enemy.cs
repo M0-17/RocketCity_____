@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float scale = 0.5f;
 
 
-    private Vector2 Offset;
+    private Vector3 Offset;
     private float time = 0f;
     private bool needToStart = true;
     private float angle = 0f;
@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        Offset = new Vector2(Offsetx, Offsety);
+        Offset = new Vector3(Offsetx, Offsety,0);
     }
 
     void FixedUpdate()
@@ -72,7 +72,7 @@ public class Enemy : MonoBehaviour
                 case movementType.Circle:
                 case movementType.Triangle:
                 case movementType.Box:
-                    transform.position = Offset + new Vector2(0, radius);
+                    transform.position = Offset + new Vector3(0, radius,0);
                     break;
 
             }
@@ -126,7 +126,7 @@ public class Enemy : MonoBehaviour
 
             case movementType.Circle:
                 angle += (speed / (radius * Mathf.PI * 2.0f)) * Time.deltaTime;
-                transform.position = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * radius;
+                transform.position = Offset + (new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * radius);
                 break;
 
             case movementType.Triangle:
