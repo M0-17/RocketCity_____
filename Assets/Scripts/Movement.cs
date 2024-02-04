@@ -26,6 +26,15 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (rb.velocity.y < 0)
+        {
+            animator.SetTrigger("IsFalling");
+        } else
+        {
+            animator.ResetTrigger("IsFalling");
+        }
+
         timeIdle += Time.deltaTime;
 
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && !isJumping)

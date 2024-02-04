@@ -36,12 +36,18 @@ public class CutsceneTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameObject cam = GameObject.FindWithTag("MainCamera");
-        cam.GetComponent<CamFollow>().shouldFollow = false;
-        cam.transform.position = new Vector3(fixCam.x, fixCam.y, cam.transform.position.z);
+        if (collision.gameObject.tag == "Player")
+        {
+            Globals.winDHunt = false;
+            Destroy(GameObject.FindWithTag("Player"));
+            GameObject cam = GameObject.FindWithTag("MainCamera");
+            cam.GetComponent<CamFollow>().shouldFollow = false;
+            cam.transform.position = new Vector3(fixCam.x, fixCam.y, cam.transform.position.z);
+            anim2.gameObject.GetComponent<SpriteRenderer>().enabled = true;
 
-        anim1.SetTrigger(anim1Trigger);
-        anim2.SetTrigger(anim2Trigger);
-        started = true;
+            anim1.SetTrigger(anim1Trigger);
+            anim2.SetTrigger(anim2Trigger);
+            started = true;
+        }
     }
 }

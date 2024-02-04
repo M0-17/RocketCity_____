@@ -8,6 +8,7 @@ public class DHuntStart : MonoBehaviour
 {
     public string currentSceneName;
     public string dHuntSceneName;
+    public GameObject destroyObj;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,7 @@ public class DHuntStart : MonoBehaviour
         if (Globals.winDHunt)
         {
             //Remove the box collider so it doesn't trigger again
+            Destroy(destroyObj);
             Destroy(gameObject);
         } else
         {
