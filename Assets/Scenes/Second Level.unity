@@ -10263,7 +10263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   jump: 8
-  jetpackMax: 0.5
+  jetpackMax: 2
   jetpackTime: 0.5
   jetpackDiv: 2
 --- !u!114 &358348712
