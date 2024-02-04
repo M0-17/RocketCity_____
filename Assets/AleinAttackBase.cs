@@ -20,6 +20,7 @@ public class AleinAttackBase : MonoBehaviour
     [SerializeField] private GameObject overlay = null;
     [SerializeField] private GameObject overlay2 = null;
     [SerializeField] private GameObject overlay3 = null;
+    [SerializeField] private int level = 1;
     private int shields = 0;
     private float cooldown = 0;
 
@@ -119,7 +120,18 @@ public class AleinAttackBase : MonoBehaviour
     void flash7()
     {
         Debug.Log("flash7");
-        SceneManager.LoadScene("AlienAttackBaseScene");
+        switch(level)
+        {
+            case 1:
+            SceneManager.LoadScene("AlienAttackLevel1");
+            break;
+            case 2:
+            SceneManager.LoadScene("AlienAttackLevel2");
+            break;
+            case 3:
+            SceneManager.LoadScene("AlienAttackLevel3");
+            break;
+        }
     }
 
     public void get_hit()
