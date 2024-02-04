@@ -10968,7 +10968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim1: {fileID: 1448422446}
-  anim1Trigger: loadShip
+  anim1Trigger: loadShip2
   anim2: {fileID: 866307108}
   anim2Trigger: intoShip
   endTime: 4

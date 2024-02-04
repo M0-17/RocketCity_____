@@ -10,6 +10,7 @@ public class Finale : MonoBehaviour
     public float endTime;
     private float trackTime;
     public Animator am;
+    public Animator am2;
     private GameObject cam;
     // Start is called before the first frame update
     void Start()
